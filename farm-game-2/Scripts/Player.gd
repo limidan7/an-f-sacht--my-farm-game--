@@ -1,12 +1,14 @@
 extends CharacterBody2D
 
+
+var tool = Global.Tool
 @onready var Sprite =  $AnimatedSprite2D
 const SPEED = 300.0
 var movable 
 
 func _ready() -> void:
 	movable = true
-	Sprite.play("idle")
+	Sprite.play("Idle")
 
 
 
@@ -19,6 +21,7 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 		animation()
 		Click()
+		
 	
 func animation():
 	if movable == true:
@@ -34,11 +37,20 @@ func animation():
 			Sprite.play("Idle")
 			
 func Click():
-	if Input.is_action_just_pressed("Click"):
+	if Input.is_action_just_pressed("Click") and tool != null:
 		movable = false
-		Sprite.play("Click")
+		if tool == "shovel":
+			Sprite.play("Shovel_front")
+		elif tool == "watering_can":
+			Sprite.play("Watering_Can _front")
+		elif tool == "axe":
+			Sprite.play("Axe_front")
 		await Sprite.animation_finished
+		tool = null
 		movable = true
+		print("worked")
+		
+
 		
 
 	

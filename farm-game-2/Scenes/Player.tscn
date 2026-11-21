@@ -7,13 +7,13 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_2affl"]
 radius = 82.607506
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_x63xi"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_qidb7"]
 atlas = ExtResource("2_gntrk")
-region = Rect2(0, 0, 48, 48)
+region = Rect2(0, 192, 48, 48)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_i2e8t"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_70hv0"]
 atlas = ExtResource("2_gntrk")
-region = Rect2(48, 0, 48, 48)
+region = Rect2(48, 192, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kyqiw"]
 atlas = ExtResource("2_kyqiw")
@@ -30,6 +30,22 @@ region = Rect2(0, 0, 48, 48)
 [sub_resource type="AtlasTexture" id="AtlasTexture_5v66d"]
 atlas = ExtResource("2_kyqiw")
 region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x63xi"]
+atlas = ExtResource("2_gntrk")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i2e8t"]
+atlas = ExtResource("2_gntrk")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8flut"]
+atlas = ExtResource("2_gntrk")
+region = Rect2(0, 384, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u7x0b"]
+atlas = ExtResource("2_gntrk")
+region = Rect2(48, 384, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gntrk"]
 atlas = ExtResource("2_kyqiw")
@@ -99,13 +115,13 @@ region = Rect2(144, 48, 48, 48)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_x63xi")
+"texture": SubResource("AtlasTexture_qidb7")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_i2e8t")
+"texture": SubResource("AtlasTexture_70hv0")
 }],
 "loop": 0,
-"name": &"Click",
+"name": &"Axe_front",
 "speed": 5.0
 }, {
 "frames": [{
@@ -124,6 +140,28 @@ animations = [{
 "loop": 1,
 "name": &"Idle",
 "speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x63xi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i2e8t")
+}],
+"loop": 0,
+"name": &"Shovel_front",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8flut")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u7x0b")
+}],
+"loop": 0,
+"name": &"Watering_Can _front",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -205,4 +243,4 @@ texture_filter = 1
 position = Vector2(3.8146973e-06, -1)
 scale = Vector2(10.338542, 10.338542)
 sprite_frames = SubResource("SpriteFrames_2affl")
-animation = &"Click"
+animation = &"Watering_Can _front"
