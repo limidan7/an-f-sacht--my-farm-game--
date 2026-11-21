@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://cq6p3viap5hwg"]
+
+[ext_resource type="PackedScene" uid="uid://bvatjs8kogdts" path="res://Scenes/Player.tscn" id="1_0ba56"]
+[ext_resource type="Script" uid="uid://bpy1ow6fwehol" path="res://Scenes/h_box_container.gd" id="2_fuudy"]
+[ext_resource type="Texture2D" uid="uid://ds33pvs5ar4ux" path="res://icon.svg" id="2_vsvp5"]
+[ext_resource type="Script" uid="uid://du7civ1v7587m" path="res://Inventory Label.gd" id="3_8rbpu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2affl"]
+size = Vector2(20, 666)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v2wjl"]
+size = Vector2(1159, 27)
+
+[node name="Level" type="Node2D" unique_id=50586562]
+
+[node name="Player" parent="." unique_id=801090483 instance=ExtResource("1_0ba56")]
+position = Vector2(576, 318)
+scale = Vector2(0.5, 0.5)
+
+[node name="Borders" type="StaticBody2D" parent="." unique_id=2118457243]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders" unique_id=110883496]
+position = Vector2(0, 323)
+shape = SubResource("RectangleShape2D_2affl")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Borders" unique_id=684278668]
+position = Vector2(1152, 323)
+shape = SubResource("RectangleShape2D_2affl")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Borders" unique_id=2071658943]
+position = Vector2(569.5, -8)
+shape = SubResource("RectangleShape2D_v2wjl")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Borders" unique_id=355134411]
+position = Vector2(571, 654.5)
+shape = SubResource("RectangleShape2D_v2wjl")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1667403350]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer" unique_id=1917663017]
+custom_maximum_size = Vector2(0, -1)
+offset_right = 574.0
+offset_bottom = 143.0
+theme_override_constants/separation = 140
+script = ExtResource("2_fuudy")
+
+[node name="1" type="Panel" parent="CanvasLayer/HBoxContainer" unique_id=1759993407]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HBoxContainer/1" unique_id=722404365]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_vsvp5")
+
+[node name="Label" type="Label" parent="CanvasLayer/HBoxContainer/1" unique_id=915017933]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+script = ExtResource("3_8rbpu")
+
+[node name="2" type="Panel" parent="CanvasLayer/HBoxContainer" unique_id=1580691403]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HBoxContainer/2" unique_id=367850400]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_vsvp5")
+
+[node name="Label" type="Label" parent="CanvasLayer/HBoxContainer/2" unique_id=965631504]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+script = ExtResource("3_8rbpu")
+
+[node name="3" type="Panel" parent="CanvasLayer/HBoxContainer" unique_id=1490260567]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HBoxContainer/3" unique_id=562919804]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_vsvp5")
+
+[node name="Label" type="Label" parent="CanvasLayer/HBoxContainer/3" unique_id=1779682320]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+script = ExtResource("3_8rbpu")
