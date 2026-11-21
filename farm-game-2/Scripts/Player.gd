@@ -15,6 +15,7 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	Tool_select()
 	if movable == true:
 		var direction = Input.get_vector("Left", "Right", "Up", "Down")
 		velocity = SPEED * direction
@@ -51,7 +52,13 @@ func Click():
 		print("worked")
 		
 
-		
+func Tool_select():
+	if Input.is_action_just_pressed("1"):
+		tool = "watering_can"
+	elif Input.is_action_just_pressed("2"):
+		tool = "axe"
+	elif Input.is_action_just_pressed("3"):
+		tool = "shovel"
 
 	
 	
