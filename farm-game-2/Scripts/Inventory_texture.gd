@@ -16,6 +16,6 @@ func _process(delta: float) -> void:
 func Selection_inventory():
 	if selfname == tool:
 		modulate.a = 1.0
-	else:
+	elif selfname != tool:
 		modulate.a = 0.5
 	

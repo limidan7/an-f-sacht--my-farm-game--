@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 var tool = Global.Tool
 @onready var Sprite =  $AnimatedSprite2D
-const SPEED = 300.0
+const SPEED = 100.0
 var movable 
 signal done
 
@@ -51,8 +51,8 @@ func Click():
 			Sprite.play("Axe_front")
 
 		await Sprite.animation_finished
-		doneemit()
 		movable = true
+		Global.Tool = null
 		print("worked")
 		
 
@@ -66,5 +66,3 @@ func Tool_select():
 		
 	
 	
-func doneemit():
-	done.emit()
