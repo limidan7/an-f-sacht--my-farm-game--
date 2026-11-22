@@ -1,3 +1,4 @@
+
 extends CharacterBody2D
 
 @onready var timer = $Timer
@@ -35,16 +36,18 @@ func randspawner():
 			
 func idle():
 	print("idle", self.name)
-	await timer.start(2).timeout
+	timer.start(2)
+	await timer.timeout
 	randspawner()
 	
 func walk_left():
 	var walkdistance = randi_range(100, 400)
 	var target = position.x - walkdistance
 	print("walking_left", walkdistance, self.name)
-	while position.x < target:
+	while position.x > target:
 		velocity.x = -50
 		move_and_slide()
+	velocity = Vector2.ZERO
 	randspawner()
 	
 func walk_right():
@@ -54,6 +57,7 @@ func walk_right():
 	while position.x < target:
 		velocity.x = 50
 		move_and_slide()
+	velocity = Vector2.ZERO
 	randspawner()
 
 func randpos():
@@ -67,5 +71,6 @@ func randpos():
 		velocity.y = 50
 		velocity.x = 50
 		move_and_slide()
+	velocity = Vector2.ZERO
 	randspawner()
 	
