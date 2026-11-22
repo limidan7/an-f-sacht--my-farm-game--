@@ -160,7 +160,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_u7x0b")
 }],
 "loop": 0,
-"name": &"Watering_Can _front",
+"name": &"Watering_Can_front",
 "speed": 5.0
 }, {
 "frames": [{
@@ -243,4 +243,4 @@ texture_filter = 1
 position = Vector2(3.8146973e-06, -1)
 scale = Vector2(10.338542, 10.338542)
 sprite_frames = SubResource("SpriteFrames_2affl")
-animation = &"Watering_Can _front"
+animation = &"Watering_Can_front"

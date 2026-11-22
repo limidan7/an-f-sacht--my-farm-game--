@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://bpy1ow6fwehol" path="res://Scripts/h_box_container.gd" id="2_fuudy"]
 [ext_resource type="Script" uid="uid://du7civ1v7587m" path="res://Scripts/Inventory Label.gd" id="3_8rbpu"]
 [ext_resource type="Texture2D" uid="uid://c6ndm0m1vklgb" path="res://Sprites/Tools Tileset.png" id="3_xylue"]
+[ext_resource type="Script" uid="uid://dcgnw0b8ye4im" path="res://Scripts/Inventory_texture.gd" id="4_tj5wv"]
 [ext_resource type="Texture2D" uid="uid://car35lhcxgs20" path="res://Sprites/Sprout Lands - Sprites - Basic pack/Characters/Shovel.png" id="5_tj5wv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2affl"]
@@ -64,6 +65,7 @@ offset_top = 1.0
 offset_right = 127.0
 offset_bottom = 127.0
 texture = SubResource("AtlasTexture_5ixxa")
+script = ExtResource("4_tj5wv")
 
 [node name="1" type="Label" parent="CanvasLayer/HBoxContainer/WATERINGCAN" unique_id=1926615385]
 layout_mode = 0
@@ -81,6 +83,7 @@ offset_top = 12.0
 offset_right = 126.0
 offset_bottom = 131.0
 texture = SubResource("AtlasTexture_tj5wv")
+script = ExtResource("4_tj5wv")
 
 [node name="2" type="Label" parent="CanvasLayer/HBoxContainer/AXE" unique_id=2037994022]
 layout_mode = 0
@@ -98,6 +101,7 @@ offset_top = 10.0
 offset_right = 126.0
 offset_bottom = 126.0
 texture = ExtResource("5_tj5wv")
+script = ExtResource("4_tj5wv")
 
 [node name="3" type="Label" parent="CanvasLayer/HBoxContainer/SHOVEL" unique_id=1432367158]
 layout_mode = 0

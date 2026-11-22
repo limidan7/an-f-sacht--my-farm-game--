@@ -5,8 +5,10 @@ var tool = Global.Tool
 @onready var Sprite =  $AnimatedSprite2D
 const SPEED = 300.0
 var movable 
+signal done
 
 func _ready() -> void:
+	
 	movable = true
 	Sprite.play("Idle")
 
@@ -38,28 +40,31 @@ func animation():
 			Sprite.play("Idle")
 			
 func Click():
-	if Input.is_action_just_pressed("Click") and tool != null:
+	if Input.is_action_just_pressed("Click") and Global.Tool != null:
 		movable = false
-		if tool == "shovel":
+
+		if Global.Tool == "shovel":
 			Sprite.play("Shovel_front")
-		elif tool == "watering_can":
-			Sprite.play("Watering_Can _front")
-		elif tool == "axe":
+		elif Global.Tool == "watering_can":
+			Sprite.play("Watering_Can_front")
+		elif Global.Tool == "axe":
 			Sprite.play("Axe_front")
+
 		await Sprite.animation_finished
-		tool = null
+		doneemit()
 		movable = true
 		print("worked")
 		
 
 func Tool_select():
-	if Input.is_action_just_pressed("1"):
-		tool = "watering_can"
-	elif Input.is_action_just_pressed("2"):
-		tool = "axe"
-	elif Input.is_action_just_pressed("3"):
-		tool = "shovel"
-
+		if Input.is_action_just_pressed("1"):
+			Global.Tool = "watering_can"
+		elif Input.is_action_just_pressed("2"):
+			Global.Tool = "axe"
+		elif Input.is_action_just_pressed("3"):
+			Global.Tool = "shovel"
+		
 	
 	
-	
+func doneemit():
+	done.emit()
