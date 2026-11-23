@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 var tool = Global.Tool
 @onready var Sprite =  $AnimatedSprite2D
-const SPEED = 100.0
+const SPEED = 175.0
 var movable 
 signal done
 

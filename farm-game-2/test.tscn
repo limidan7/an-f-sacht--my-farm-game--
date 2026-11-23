@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dw1gq7lnsbvid"]
+
+[ext_resource type="PackedScene" uid="uid://bg3ifvt6crl5h" path="res://Scenes/chicken.tscn" id="1_37kl0"]
+
+[node name="Node2D" type="Node2D" unique_id=596521077]
+
+[node name="Node2D" parent="." unique_id=1685971604 instance=ExtResource("1_37kl0")]
+
+[editable path="Node2D"]

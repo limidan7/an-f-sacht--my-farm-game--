@@ -7,7 +7,6 @@
 [ext_resource type="Script" uid="uid://dcgnw0b8ye4im" path="res://Scripts/Inventory_texture.gd" id="4_tj5wv"]
 [ext_resource type="Texture2D" uid="uid://car35lhcxgs20" path="res://Sprites/Sprout Lands - Sprites - Basic pack/Characters/Shovel.png" id="5_tj5wv"]
 [ext_resource type="PackedScene" uid="uid://bg3ifvt6crl5h" path="res://Scenes/chicken.tscn" id="7_ienac"]
-[ext_resource type="Script" uid="uid://0f3yb21a8xai" path="res://Scripts/chicken.gd" id="8_5rrr5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2affl"]
 size = Vector2(20, 666)
@@ -111,13 +110,4 @@ offset_right = 127.0
 offset_bottom = 23.0
 script = ExtResource("3_8rbpu")
 
-[node name="chickens" type="Node" parent="." unique_id=1053072724]
-
-[node name="chicken3" parent="chickens" unique_id=1685971604 instance=ExtResource("7_ienac")]
-script = ExtResource("8_5rrr5")
-
-[node name="chicken2" parent="chickens" unique_id=370250775 instance=ExtResource("7_ienac")]
-script = ExtResource("8_5rrr5")
-
-[node name="chicken1" parent="chickens" unique_id=391534383 instance=ExtResource("7_ienac")]
-script = ExtResource("8_5rrr5")
+[node name="chickeb" parent="." unique_id=1685971604 instance=ExtResource("7_ienac")]
