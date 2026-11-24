@@ -9,23 +9,23 @@ signal done
 
 func _ready() -> void:
 	
+	
 	movable = true
 	Sprite.play("Idle")
 
-
-
-
-
 func _physics_process(delta: float) -> void:
+	
 	Tool_select()
 	if movable == true:
 		var direction = Input.get_vector("Left", "Right", "Up", "Down")
 		velocity = SPEED * direction
+		if Input.is_action_pressed("shift"):
+			velocity *= 1.7
+			sprinttakedown()
 		move_and_slide()
 		animation()
 		Click()
-		
-	
+
 func animation():
 	if movable == true:
 		if velocity.y > 0:
@@ -38,7 +38,7 @@ func animation():
 			Sprite.play("walk_left")
 		else:
 			Sprite.play("Idle")
-			
+
 func Click():
 	if Input.is_action_just_pressed("Click") and Global.Tool != null:
 		movable = false
@@ -63,6 +63,7 @@ func Tool_select():
 			Global.Tool = "axe"
 		elif Input.is_action_just_pressed("3"):
 			Global.Tool = "shovel"
-		
-	
+
+
+
 	
