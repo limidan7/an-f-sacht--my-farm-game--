@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://cqui01vtmv1ej" path="res://Sprites/Sprout Lands - Sprites - Basic pack/Characters/Basic Charakter Actions.png" id="2_gntrk"]
 [ext_resource type="Texture2D" uid="uid://s8g7kdpke61t" path="res://Sprites/Sprout Lands - Sprites - Basic pack/Characters/Basic Charakter Spritesheet.png" id="2_kyqiw"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_2affl"]
-radius = 82.607506
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jy3mo"]
+size = Vector2(145, 156)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qidb7"]
 atlas = ExtResource("2_gntrk")
@@ -236,7 +236,8 @@ animations = [{
 script = ExtResource("1_rpqav")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=927011924]
-shape = SubResource("CircleShape2D_2affl")
+position = Vector2(0.5, 6)
+shape = SubResource("RectangleShape2D_jy3mo")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1290114553]
 texture_filter = 1

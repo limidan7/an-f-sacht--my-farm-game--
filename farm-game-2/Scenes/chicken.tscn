@@ -3,6 +3,14 @@
 [ext_resource type="Texture2D" uid="uid://cosdajvu1hdoj" path="res://Sprites/Sprout Lands - Sprites - Basic pack/Characters/Free Chicken Sprites.png" id="1_45cuv"]
 [ext_resource type="Script" uid="uid://0f3yb21a8xai" path="res://Scripts/chicken.gd" id="1_jy3mo"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_jy3mo"]
+atlas = ExtResource("1_45cuv")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7h841"]
+atlas = ExtResource("1_45cuv")
+region = Rect2(16, 0, 16, 16)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_isa2u"]
 atlas = ExtResource("1_45cuv")
 region = Rect2(0, 16, 16, 16)
@@ -23,6 +31,17 @@ region = Rect2(48, 16, 16, 16)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_jy3mo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7h841")
+}],
+"loop": 1,
+"name": &"Idle",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_isa2u")
 }, {
 "duration": 1.0,
@@ -40,7 +59,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2affl"]
-radius = 6.0
+radius = 5.2
 
 [node name="Node2D" type="CharacterBody2D" unique_id=1685971604]
 scale = Vector2(5, 5)
@@ -49,9 +68,11 @@ script = ExtResource("1_jy3mo")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=954135264]
 position = Vector2(1, 0)
 sprite_frames = SubResource("SpriteFrames_2affl")
-frame_progress = 0.21939139
+animation = &"Idle"
+frame_progress = 0.7565431
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=973725875]
+position = Vector2(-0.19999999, 0.79999995)
 shape = SubResource("CircleShape2D_2affl")
 
 [node name="Timer" type="Timer" parent="." unique_id=767744853]

@@ -110,4 +110,7 @@ offset_right = 127.0
 offset_bottom = 23.0
 script = ExtResource("3_8rbpu")
 
-[node name="chickeb" parent="." unique_id=1685971604 instance=ExtResource("7_ienac")]
+[node name="chicken1" parent="." unique_id=1685971604 instance=ExtResource("7_ienac")]
+position = Vector2(580.00006, 554)
+
+[node name="chicken 2" parent="." unique_id=585868518 instance=ExtResource("7_ienac")]

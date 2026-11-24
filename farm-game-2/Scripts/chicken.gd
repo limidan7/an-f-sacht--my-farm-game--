@@ -6,18 +6,26 @@ extends CharacterBody2D
 var is_acting = false
 var speed = 50.0
 
+var min_x = 80
+var max_x = 1100
+var min_y = 50
+var max_y = 580
+
+
 func _ready() -> void:
+
 	randomize()
 	randspawn()
 	print(position)
 	print("spawned")
-	
+
 	randspawner()
 
 
 func randspawn():
-	var randomx = randi_range(80, 1100)
-	var randomy = randi_range(50, 600)
+	var randomx = randi_range(min_x, max_x)
+	var randomy = randi_range(min_y, max_y)
+
 	position = Vector2(randomx, randomy)
 
 
@@ -45,18 +53,21 @@ func randspawner():
 
 func idle():
 	print("idle", self.name)
+	$AnimatedSprite2D.play("Idle")
 	timer.start(2)
 	await timer.timeout
 
 
 func walk_left():
 	var walkdistance = randi_range(100, 400)
-	var target = position.x - walkdistance
-
+	var target = max(position.x - walkdistance, min_x)
+	$AnimatedSprite2D.flip_h = true
 	print("walking_left", walkdistance, self.name)
 
 	while position.x > target:
+		$AnimatedSprite2D.play("default")
 		velocity.x = -speed
+		flipcheck()
 		move_and_slide()
 		await get_tree().physics_frame
 
@@ -65,12 +76,14 @@ func walk_left():
 
 func walk_right():
 	var walkdistance = randi_range(100, 400)
-	var target = position.x + walkdistance
-
-	print("walking_right ", walkdistance, self.name)
+	var target = min(position.x + walkdistance, max_x)
+	$AnimatedSprite2D.flip_h = false
+	print("walking_right", walkdistance, self.name)
 
 	while position.x < target:
+		$AnimatedSprite2D.play("default")
 		velocity.x = speed
+		flipcheck()
 		move_and_slide()
 		await get_tree().physics_frame
 
@@ -78,18 +91,34 @@ func walk_right():
 
 
 func randpos():
-	var targetxdistance = randi_range(100, 500)
-	var targetydistance = randi_range(100, 500)
+	var targetx = randf_range(min_x, max_x)
+	var targety = randf_range(min_y, max_y)
 
-	var targety = position.y + targetydistance
-	var targetx = position.x + targetxdistance
+	print("randpos ", targetx, targety, self.name)
 
-	print("randpos ", targetxdistance, targetydistance, self.name)
-
-	while position.x < targetx and position.y < targety:
-		velocity.x = speed
-		velocity.y = speed
+	while position.distance_to(Vector2(targetx, targety)) > 5:
+		var direction = (Vector2(targetx, targety) - position).normalized()
+		$AnimatedSprite2D.play("default")
+		velocity = direction * speed
+		flipcheck()
 		move_and_slide()
+
 		await get_tree().physics_frame
 
 	velocity = Vector2.ZERO
+	
+func randspawndir():
+	var gimp = randf_range(0,1)
+	match gimp:
+		0:
+			$AnimatedSprite2D.flip_h = true
+		1:
+			$AnimatedSprite2D.flip_h = false
+	print(gimp, "random flip")
+	
+func flipcheck():
+	if velocity.x < 0:
+		$AnimatedSprite2D.flip_h = true
+	elif velocity.x > 0:
+		$AnimatedSprite2D.flip_h = false
+	
