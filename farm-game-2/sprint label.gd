@@ -1,11 +1,12 @@
 extends Label
-var sprintamm = str(Global.Sprint)
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	text = sprintamm
-
+	text = str(snapped(Global.stamina, 0))
+	print(Global.stamina)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	text = sprintamm
+	text = str(snapped(Global.stamina, 0))
+	

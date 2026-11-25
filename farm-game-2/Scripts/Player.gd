@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-
+@onready var Stamina = $Stamina
 var tool = Global.Tool
 @onready var Sprite =  $AnimatedSprite2D
 const SPEED = 175.0
@@ -19,9 +19,12 @@ func _physics_process(delta: float) -> void:
 	if movable == true:
 		var direction = Input.get_vector("Left", "Right", "Up", "Down")
 		velocity = SPEED * direction
-		if Input.is_action_pressed("shift"):
+		if Input.is_action_pressed("shift") and Global.stamina > 0:
 			velocity *= 1.7
-			sprinttakedown()
+			Stamina.is_sprinting = true
+		else:
+			Stamina.is_sprinting = false
+			
 		move_and_slide()
 		animation()
 		Click()

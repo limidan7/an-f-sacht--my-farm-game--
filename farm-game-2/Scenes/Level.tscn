@@ -128,3 +128,5 @@ script = ExtResource("7_5rrr5")
 position = Vector2(580.00006, 554)
 
 [node name="chicken 2" parent="." unique_id=585868518 instance=ExtResource("7_ienac")]
+
+[editable path="Player"]
