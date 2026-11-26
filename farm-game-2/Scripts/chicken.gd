@@ -2,7 +2,7 @@
 extends CharacterBody2D
 
 @onready var timer = $Timer
-
+@onready var Player = $"../Player"
 var is_acting = false
 var speed = 50.0
 
@@ -18,6 +18,8 @@ func _ready() -> void:
 	randspawn()
 	print(position)
 	print("spawned")
+	if position.x > 870 and position.y > 420:
+		randspawn()
 
 	randspawner()
 
@@ -121,4 +123,13 @@ func flipcheck():
 		$AnimatedSprite2D.flip_h = true
 	elif velocity.x > 0:
 		$AnimatedSprite2D.flip_h = false
+		
+func seeds(delta):
+	if Global.seed == true:
+		while Player.position.x > position.x and Player.position.y > position.y:
+			position.x += 10 * delta
+			position.y += 10 * delta
+
+func _physics_process(delta: float) -> void:
+	seeds(delta)
 	

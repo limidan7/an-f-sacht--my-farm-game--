@@ -1,5 +1,4 @@
 extends CharacterBody2D
-
 @onready var Staminacheckervariable = $Stamina
 @onready var Stamina = $Stamina
 var tool = Global.Tool
@@ -32,6 +31,7 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 		animation()
 		Click()
+		e()
 
 func animation():
 	if movable == true:#plays walking animations based on velocity 
@@ -71,6 +71,13 @@ func Tool_select():
 		elif Input.is_action_just_pressed("3"):
 			Global.Tool = "shovel"
 
+func e ():
+	if Input.is_action_pressed("e"):
+		Global.seed = true
+		Sprite.scale = Vector2(3,3)
+	else:
+		Global.seed = false
+		Sprite.scale = Vector2(1,1)
 
 
 	
