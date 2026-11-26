@@ -4,7 +4,7 @@ extends CharacterBody2D
 @onready var Stamina = $Stamina
 var tool = Global.Tool
 @onready var Sprite =  $AnimatedSprite2D
-const SPEED = 175.0
+const SPEED = 150
 var movable 
 
 
