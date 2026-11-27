@@ -138,6 +138,11 @@ func seeds(delta):
 func _physics_process(delta: float) -> void:
 	if Global.seed == true:
 		seeds(delta)
+		$AnimatedSprite2D.play("default")
+		if Player.position.x > position.x:
+			$AnimatedSprite2D.flip_h = false
+		elif Player.position.x < position.x:
+			$AnimatedSprite2D.flip_h = true
 	elif is_acting == false:
 		randaction()
 		$AnimatedSprite2D.scale = Vector2(1,1)

@@ -249,3 +249,5 @@ animation = &"Watering_Can_front"
 
 [node name="Stamina" type="Node" parent="." unique_id=317559042]
 script = ExtResource("4_dewec")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1583876619]

@@ -15,7 +15,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if is_sprinting:# checks if the player is sprinting and drains stamina accordingly , otherwise the player regens 
 		Global.stamina -= drain_rate * delta
-		print("stamina")
 	else:
 		Global.stamina += regen_rate * delta
 		
