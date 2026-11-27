@@ -1,4 +1,6 @@
 extends CharacterBody2D
+
+
 @onready var Staminacheckervariable = $Stamina
 @onready var Stamina = $Stamina
 var tool = Global.Tool
@@ -23,10 +25,10 @@ func _physics_process(delta: float) -> void:
 			if Global.stamina > 0 and Staminacheckervariable.regencap == false:#checks if theres staminaa and if the regencap is active or not before sprinting
 				velocity *= 1.7
 				Stamina.is_sprinting = true#Speeds up the character and sets the spriting varaibale
-				print("velocity is 1.7x", velocity)
+				
 		else:
 			Stamina.is_sprinting = false
-			print("velocity is normal", velocity)
+			
 			
 		move_and_slide()
 		animation()
@@ -74,10 +76,10 @@ func Tool_select():
 func e ():
 	if Input.is_action_pressed("e"):
 		Global.seed = true
-		Sprite.scale = Vector2(3,3)
+		Sprite.scale = Vector2(30,30)
 	else:
 		Global.seed = false
-		Sprite.scale = Vector2(1,1)
+		Sprite.scale = Vector2(10,10)
 
 
 	

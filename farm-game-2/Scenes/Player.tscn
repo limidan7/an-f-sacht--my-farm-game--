@@ -233,7 +233,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Node2D" type="CharacterBody2D" unique_id=801090483]
+[node name="Imreor" type="CharacterBody2D" unique_id=801090483]
 script = ExtResource("1_rpqav")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=927011924]

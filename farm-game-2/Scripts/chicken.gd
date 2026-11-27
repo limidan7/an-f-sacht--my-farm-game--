@@ -2,7 +2,7 @@
 extends CharacterBody2D
 
 @onready var timer = $Timer
-@onready var Player = $"../Player"
+@onready var Player = $"../"
 var is_acting = false
 var speed = 50.0
 
@@ -13,15 +13,13 @@ var max_y = 580
 
 
 func _ready() -> void:
-
 	randomize()
 	randspawn()
-	print(position)
-	print("spawned")
 	if position.x > 870 and position.y > 420:
 		randspawn()
-
-	randspawner()
+	set_deferred("disabled", true)
+	randaction()
+	$AnimatedSprite2D.scale = Vector2(1,1)
 
 
 func randspawn():
@@ -31,7 +29,7 @@ func randspawn():
 	position = Vector2(randomx, randomy)
 
 
-func randspawner():
+func randaction():
 	if is_acting:
 		return
 
@@ -50,11 +48,11 @@ func randspawner():
 			await randpos()
 
 	is_acting = false
-	randspawner()
+	randaction()
 
 
 func idle():
-	print("idle", self.name)
+	
 	$AnimatedSprite2D.play("Idle")
 	timer.start(2)
 	await timer.timeout
@@ -64,7 +62,7 @@ func walk_left():
 	var walkdistance = randi_range(100, 400)
 	var target = max(position.x - walkdistance, min_x)
 	$AnimatedSprite2D.flip_h = true
-	print("walking_left", walkdistance, self.name)
+	
 
 	while position.x > target:
 		$AnimatedSprite2D.play("default")
@@ -80,7 +78,7 @@ func walk_right():
 	var walkdistance = randi_range(100, 400)
 	var target = min(position.x + walkdistance, max_x)
 	$AnimatedSprite2D.flip_h = false
-	print("walking_right", walkdistance, self.name)
+	
 
 	while position.x < target:
 		$AnimatedSprite2D.play("default")
@@ -96,8 +94,7 @@ func randpos():
 	var targetx = randf_range(min_x, max_x)
 	var targety = randf_range(min_y, max_y)
 
-	print("randpos ", targetx, targety, self.name)
-
+	
 	while position.distance_to(Vector2(targetx, targety)) > 5:
 		var direction = (Vector2(targetx, targety) - position).normalized()
 		$AnimatedSprite2D.play("default")
@@ -116,7 +113,7 @@ func randspawndir():
 			$AnimatedSprite2D.flip_h = true
 		1:
 			$AnimatedSprite2D.flip_h = false
-	print(gimp, "random flip")
+	
 	
 func flipcheck():
 	if velocity.x < 0:
@@ -125,11 +122,13 @@ func flipcheck():
 		$AnimatedSprite2D.flip_h = false
 		
 func seeds(delta):
-	if Global.seed == true:
-		while Player.position.x > position.x and Player.position.y > position.y:
-			position.x += 10 * delta
-			position.y += 10 * delta
+	print("Seeds function is running")
+	$AnimatedSprite2D.scale = Vector2(3,3)s
 
 func _physics_process(delta: float) -> void:
-	seeds(delta)
+	if Global.seed == true:
+		seeds(delta)
+	else:
+		$AnimatedSprite2D.scale = Vector2(1,1)
+	
 	
