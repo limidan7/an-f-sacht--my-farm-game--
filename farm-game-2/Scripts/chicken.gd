@@ -1,8 +1,8 @@
 
 extends CharacterBody2D
-
+var is_seeds
 @onready var timer = $Timer
-@onready var Player = $"../"
+@onready var Player = $"../../Player"
 var is_acting = false
 var speed = 50.0
 
@@ -17,9 +17,10 @@ func _ready() -> void:
 	randspawn()
 	if position.x > 870 and position.y > 420:
 		randspawn()
-	set_deferred("disabled", true)
+	$CollisionShape2D.disabled = true
 	randaction()
 	$AnimatedSprite2D.scale = Vector2(1,1)
+
 
 
 func randspawn():
@@ -30,25 +31,26 @@ func randspawn():
 
 
 func randaction():
-	if is_acting:
-		return
+	if Global.seed == false:
+		if is_acting:
+			return
 
-	is_acting = true
+		is_acting = true
 
-	var action = randi_range(0, 3)
+		var action = randi_range(0, 3)
 
-	match action:
-		0:
-			await idle()
-		1:
-			await walk_left()
-		2:
-			await walk_right()
-		3:
-			await randpos()
+		match action:
+			0:
+				await idle()
+			1:
+				await walk_left()
+			2:
+				await walk_right()
+			3:
+				await randpos()
 
-	is_acting = false
-	randaction()
+		is_acting = false
+		randaction()
 
 
 func idle():
@@ -64,7 +66,7 @@ func walk_left():
 	$AnimatedSprite2D.flip_h = true
 	
 
-	while position.x > target:
+	while position.x > target and Global.seed == false:
 		$AnimatedSprite2D.play("default")
 		velocity.x = -speed
 		flipcheck()
@@ -80,7 +82,7 @@ func walk_right():
 	$AnimatedSprite2D.flip_h = false
 	
 
-	while position.x < target:
+	while position.x < target and Global.seed == false:
 		$AnimatedSprite2D.play("default")
 		velocity.x = speed
 		flipcheck()
@@ -95,7 +97,7 @@ func randpos():
 	var targety = randf_range(min_y, max_y)
 
 	
-	while position.distance_to(Vector2(targetx, targety)) > 5:
+	while position.distance_to(Vector2(targetx, targety)) > 5 and Global.seed == false:
 		var direction = (Vector2(targetx, targety) - position).normalized()
 		$AnimatedSprite2D.play("default")
 		velocity = direction * speed
@@ -123,12 +125,24 @@ func flipcheck():
 		
 func seeds(delta):
 	print("Seeds function is running")
-	$AnimatedSprite2D.scale = Vector2(3,3)s
-
+	is_seeds = true
+	var disttoplayer = global_position.distance_to(Player.global_position)
+	print(disttoplayer, self.name)
+	var dirtoplayer = global_position.direction_to(Player.global_position)
+	velocity = (dirtoplayer*speed)
+	if velocity != Vector2.ZERO:
+		print("is velociting")
+	move_and_slide()
+	
+	
 func _physics_process(delta: float) -> void:
 	if Global.seed == true:
 		seeds(delta)
+	elif is_acting == false:
+		randaction()
+		$AnimatedSprite2D.scale = Vector2(1,1)
 	else:
 		$AnimatedSprite2D.scale = Vector2(1,1)
+		
 	
 	

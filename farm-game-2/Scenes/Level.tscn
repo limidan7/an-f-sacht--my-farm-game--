@@ -304,9 +304,9 @@ color = Color(0.29803923, 0.29803923, 0.29803923, 1)
 [node name="Chickens" type="Node2D" parent="." unique_id=786798756]
 
 [node name="chicken 2" parent="Chickens" unique_id=585868518 instance=ExtResource("7_ienac")]
-position = Vector2(261.99997, 385.99997)
 
 [node name="chicken1" parent="Chickens" unique_id=1685971604 instance=ExtResource("7_ienac")]
-position = Vector2(1052, 421)
+
+[node name="chicken3" parent="Chickens" unique_id=1567008779 instance=ExtResource("7_ienac")]
 
 [editable path="Player"]
