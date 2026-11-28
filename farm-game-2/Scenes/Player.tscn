@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://bvatjs8kogdts"]
 
-[ext_resource type="Script" uid="uid://dm33qdurgljnd" path="res://Scripts/Player.gd" id="1_rpqav"]
+[ext_resource type="Script" uid="uid://dm33qdurgljnd" path="res://Scripts/Player-based scripts/Player.gd" id="1_rpqav"]
 [ext_resource type="Texture2D" uid="uid://cqui01vtmv1ej" path="res://Sprites/Sprout Lands - Sprites - Basic pack/Characters/Basic Charakter Actions.png" id="2_gntrk"]
 [ext_resource type="Texture2D" uid="uid://s8g7kdpke61t" path="res://Sprites/Sprout Lands - Sprites - Basic pack/Characters/Basic Charakter Spritesheet.png" id="2_kyqiw"]
-[ext_resource type="Script" uid="uid://bsw0b0sa3464g" path="res://Scripts/stamina.gd" id="4_dewec"]
+[ext_resource type="Script" uid="uid://bsw0b0sa3464g" path="res://Scripts/Player-based scripts/stamina.gd" id="4_dewec"]
+[ext_resource type="Script" uid="uid://lnfswcersla0" path="res://Scripts/Player-based scripts/axe_detect.gd" id="5_5ixxa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jy3mo"]
 size = Vector2(145, 156)
@@ -233,6 +234,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_2affl"]
+radius = 147.0
+
 [node name="Imreor" type="CharacterBody2D" unique_id=801090483]
 script = ExtResource("1_rpqav")
 
@@ -245,9 +249,17 @@ texture_filter = 1
 position = Vector2(3.8146973e-06, -1)
 scale = Vector2(10.338542, 10.338542)
 sprite_frames = SubResource("SpriteFrames_2affl")
-animation = &"Watering_Can_front"
+animation = &"Axe_front"
+frame = 1
+frame_progress = 1.0
 
 [node name="Stamina" type="Node" parent="." unique_id=317559042]
 script = ExtResource("4_dewec")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1583876619]
+
+[node name="AXE_DETECT" type="Area2D" parent="." unique_id=1044977384]
+script = ExtResource("5_5ixxa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AXE_DETECT" unique_id=1886260520]
+shape = SubResource("CircleShape2D_2affl")

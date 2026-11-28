@@ -2,7 +2,7 @@ extends Node
 
 var seed
 var Tool
-var stamina:float = 100
+var stamina:float = 500
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Tool = null #my tool variable

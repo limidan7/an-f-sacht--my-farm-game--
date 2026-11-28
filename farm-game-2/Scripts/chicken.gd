@@ -4,12 +4,12 @@ var is_seeds
 @onready var timer = $Timer
 @onready var Player = $"../../Player"
 var is_acting = false
-var speed = 50.0
+var speed = 100
 
-var min_x = 80
-var max_x = 1100
-var min_y = 50
-var max_y = 580
+var min_x = -1840
+var max_x = 2350
+var min_y = -710
+var max_y = 1400
 
 
 func _ready() -> void:
@@ -118,20 +118,25 @@ func randspawndir():
 	
 	
 func flipcheck():
-	if velocity.x < 0:
-		$AnimatedSprite2D.flip_h = true
-	elif velocity.x > 0:
-		$AnimatedSprite2D.flip_h = false
+	if global_position != Player.global_position:
+		if velocity.x < 0:
+			$AnimatedSprite2D.flip_h = true
+		elif velocity.x > 0:
+			$AnimatedSprite2D.flip_h = false
+	
 		
 func seeds(delta):
-	print("Seeds function is running")
 	is_seeds = true
+	
 	var disttoplayer = global_position.distance_to(Player.global_position)
-	print(disttoplayer, self.name)
 	var dirtoplayer = global_position.direction_to(Player.global_position)
 	velocity = (dirtoplayer*speed)
-	if velocity != Vector2.ZERO:
-		print("is velociting")
+	$CollisionShape2D.disabled = false
+	if Player.global_position == global_position:
+		$AnimatedSprite2D.play("Idle")
+	else:
+		$AnimatedSprite2D.play("default")
+		$CollisionShape2D.disabled = true
 	move_and_slide()
 	
 	

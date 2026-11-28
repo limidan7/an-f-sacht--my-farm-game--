@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Farm Game 2"
+config/name="FARM GAME"
 run/main_scene="uid://cq6p3viap5hwg"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://Sprites/icon.svg"

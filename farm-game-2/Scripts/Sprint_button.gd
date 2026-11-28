@@ -1,6 +1,6 @@
 extends Button
 
-@onready var Player = $"../Player"
+@onready var Player = $"../../Player"
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Player.SPEED = 150
