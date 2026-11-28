@@ -4,7 +4,7 @@ var is_seeds
 @onready var timer = $Timer
 @onready var Player = $"../../Player"
 var is_acting = false
-var speed = 100
+var speed = 200
 
 var min_x = -1840
 var max_x = 2350

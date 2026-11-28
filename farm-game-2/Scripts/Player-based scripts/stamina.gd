@@ -3,7 +3,7 @@ extends Node
 @onready var stamina = Global.stamina
 var drain_rate = 20
 var regen_rate = 5
-var max_stamina:float = 100
+var max_stamina:float = 500
 var is_sprinting :bool 
 var regencap:bool
 # Called when the node enters the scene tree for the first time.

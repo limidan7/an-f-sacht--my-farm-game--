@@ -13,9 +13,10 @@ func _process(delta: float) -> void:
 	
 	
 func axe_detect():
-	if Global.Tool == "axe" and Input.is_action_just_pressed("Click"):
+	if Global.Tool == "axe" and Input.is_action_pressed("Click"):
 		monitoring = true
 		checking = true
 	else:
 		monitoring = false
+		checking = false
 		

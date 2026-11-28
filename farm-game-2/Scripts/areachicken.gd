@@ -1,5 +1,6 @@
 extends Area2D
 class_name Chicken
+@onready var parent = get_parent()
 @onready var axe_detect = $"../../../Player/AXE_DETECT"
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -14,7 +15,8 @@ func _process(delta: float) -> void:
 func _on_area_entered(area: Area2D) -> void:
 	if area is Player_axe and axe_detect.checking:
 		print("is_hit")
-		print(self.name)
-	else:
-		print("Im not hit")
+		print(parent.name)
+		parent.queue_free()
+	elif area is Player_axe and axe_detect.checking == false:
+		pass
 	

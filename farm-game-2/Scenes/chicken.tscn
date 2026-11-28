@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cosdajvu1hdoj" path="res://Sprites/Sprout Lands - Sprites - Basic pack/Characters/Free Chicken Sprites.png" id="1_45cuv"]
 [ext_resource type="Script" uid="uid://0f3yb21a8xai" path="res://Scripts/chicken.gd" id="1_jy3mo"]
-[ext_resource type="Script" uid="uid://bclmje83p1r7j" path="res://Scripts/chickenarea.gd" id="3_7h841"]
+[ext_resource type="Script" uid="uid://bclmje83p1r7j" path="res://Scripts/areachicken.gd" id="3_7h841"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jy3mo"]
 atlas = ExtResource("1_45cuv")
@@ -65,7 +65,7 @@ radius = 5.2
 [sub_resource type="CircleShape2D" id="CircleShape2D_v2wjl"]
 radius = 5.8309517
 
-[node name="Node2D" type="CharacterBody2D" unique_id=1685971604]
+[node name="Chicken" type="CharacterBody2D" unique_id=1685971604]
 scale = Vector2(5, 5)
 script = ExtResource("1_jy3mo")
 

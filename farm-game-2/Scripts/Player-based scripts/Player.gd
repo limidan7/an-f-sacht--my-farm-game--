@@ -23,7 +23,7 @@ func _physics_process(delta: float) -> void:
 		velocity = SPEED * direction
 		if Input.is_action_pressed("shift"):
 			if Global.stamina > 0 and Staminacheckervariable.regencap == false:#checks if theres staminaa and if the regencap is active or not before sprinting
-				velocity *= 1.7
+				velocity *= 4
 				Stamina.is_sprinting = true#Speeds up the character and sets the spriting varaibale
 				
 		else:
@@ -60,8 +60,7 @@ func Click():
 			Sprite.play("Axe_front")
 
 		await Sprite.animation_finished
-		movable = true
-		Global.Tool = null#plays animations based on what TOol is selected rn and stops the player from moving in the animation . Then resets the tool variable
+		movable = true#plays animations based on what TOol is selected rn and stops the player from moving in the animation . Then resets the tool variable
 		
 		
 
